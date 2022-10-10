@@ -345,9 +345,6 @@ parameters:
 - name: KEYCLOAK_API_CLIENT_ID
   description: client id for Apicurio Registry API
   value: registry-api
-- name: CLIENT_CREDENTIALS_BASIC_AUTH_ENABLED
-  description: flag to enable/disable feature to allow basic authentication using service-account clientId and client secret as credentials
-  value: "true"
 
 - name: TENANT_MANAGER_URL
   value: http://tenant-manager:8585
