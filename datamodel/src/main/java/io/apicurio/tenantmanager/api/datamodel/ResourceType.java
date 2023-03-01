@@ -20,7 +20,7 @@ public class ResourceType {
     public static final String MAX_REQUESTS_PER_SECOND_COUNT = "MAX_REQUESTS_PER_SECOND_COUNT";
 
     public static List<String> values() {
-        List<String> result = new ArrayList();
+        List<String> result = new ArrayList<>();
         result.add("MAX_TOTAL_SCHEMAS_COUNT");
         result.add("MAX_SCHEMA_SIZE_BYTES");
         result.add("MAX_ARTIFACTS_COUNT");

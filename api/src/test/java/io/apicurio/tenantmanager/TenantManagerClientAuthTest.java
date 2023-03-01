@@ -20,22 +20,21 @@ import java.util.Collections;
 
 import javax.enterprise.inject.Typed;
 
-import io.apicurio.common.apps.test.JWKSMockServer;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import io.apicurio.common.apps.test.ApicurioTestTags;
 import io.apicurio.common.apps.test.AuthTestProfileWithoutRoles;
-import io.apicurio.tenantmanager.client.TenantManagerClient;
-import io.apicurio.tenantmanager.client.TenantManagerClientImpl;
+import io.apicurio.common.apps.test.JWKSMockServer;
 import io.apicurio.rest.client.auth.OidcAuth;
 import io.apicurio.rest.client.auth.exception.AuthErrorHandler;
 import io.apicurio.rest.client.auth.exception.NotAuthorizedException;
 import io.apicurio.rest.client.spi.ApicurioHttpClient;
 import io.apicurio.rest.client.spi.ApicurioHttpClientFactory;
+import io.apicurio.tenantmanager.client.TenantManagerClient;
+import io.apicurio.tenantmanager.client.TenantManagerClientImpl;
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.TestProfile;
 
