@@ -16,11 +16,10 @@
 
 package io.apicurio.tenantmanager.logging.sentry;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-
 import io.apicurio.common.apps.logging.sentry.AbstractSentryConfiguration;
 import io.apicurio.tenantmanager.api.TenantManagerSystem;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 /**
  * @author Fabian Martinez

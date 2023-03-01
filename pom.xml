@@ -83,9 +83,9 @@
         <jandex.version>1.1.1</jandex.version>
 
         <!-- Libraries -->
-        <apicurio-common-rest-client.version>0.1.15.Final</apicurio-common-rest-client.version>
-        <apicurio-common-app-components.version>0.1.15.Final</apicurio-common-app-components.version>
-        <jackson.version>2.15.0</jackson.version>
+        <apicurio-common-rest-client.version>0.1.15</apicurio-common-rest-client.version>
+        <apicurio-common-app-components.version>0.2.0.CR2</apicurio-common-app-components.version>
+        <jackson.version>2.14.2</jackson.version>
         <sentry.version>1.7.30</sentry.version>
         <junit.version>5.9.3</junit.version>
         <wiremock-jre8.version>2.35.0</wiremock-jre8.version>

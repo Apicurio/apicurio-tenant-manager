@@ -2,9 +2,9 @@ package io.apicurio.tenantmanager.logging.audit;
 
 import java.util.Map;
 
-import javax.enterprise.context.ApplicationScoped;
 
 import io.apicurio.common.apps.logging.audit.AuditMetaDataExtractor;
+import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class TenantIdExtractor implements AuditMetaDataExtractor {
