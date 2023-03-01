@@ -15,7 +15,7 @@
  */
 package io.apicurio.tenantmanager.storage.hibernate;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import io.apicurio.tenantmanager.storage.dto.ApicurioTenantDto;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;

@@ -16,8 +16,8 @@
 
 package io.apicurio.tenantmanager.api;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import io.apicurio.tenantmanager.api.datamodel.SystemInfo;
 
