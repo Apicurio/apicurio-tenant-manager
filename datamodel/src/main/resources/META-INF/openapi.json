@@ -92,7 +92,7 @@
                 "responses": {
                     "204": {
                         "description": "Successful response.",
-                        "x-codegen-returnType": "javax.ws.rs.core.Response"
+                        "x-codegen-returnType": "jakarta.ws.rs.core.Response"
                     },
                     "404": {
                         "$ref": "#/components/responses/NotFound"
@@ -209,7 +209,7 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/ApicurioTenant"
                                 },
-                                "x-codegen-returnType": "javax.ws.rs.core.Response"
+                                "x-codegen-returnType": "jakarta.ws.rs.core.Response"
                             }
                         },
                         "description": "Successful response."
