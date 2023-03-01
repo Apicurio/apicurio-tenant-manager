@@ -19,22 +19,21 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.apicurio.tenantmanager.api.datamodel.NewApicurioTenantRequest;
+import io.apicurio.rest.client.JdkHttpClient;
+import io.apicurio.rest.client.VertxHttpClient;
+import io.apicurio.rest.client.auth.Auth;
+import io.apicurio.rest.client.request.Request;
+import io.apicurio.rest.client.spi.ApicurioHttpClient;
+import io.apicurio.rest.client.util.IoUtil;
 import io.apicurio.tenantmanager.api.datamodel.ApicurioTenant;
 import io.apicurio.tenantmanager.api.datamodel.ApicurioTenantList;
+import io.apicurio.tenantmanager.api.datamodel.NewApicurioTenantRequest;
 import io.apicurio.tenantmanager.api.datamodel.SortBy;
 import io.apicurio.tenantmanager.api.datamodel.SortOrder;
 import io.apicurio.tenantmanager.api.datamodel.TenantStatusValue;
 import io.apicurio.tenantmanager.api.datamodel.UpdateApicurioTenantRequest;
 import io.apicurio.tenantmanager.client.exception.TenantManagerClientErrorHandler;
 import io.apicurio.tenantmanager.client.exception.TenantManagerClientException;
-import io.apicurio.rest.client.JdkHttpClient;
-import io.apicurio.rest.client.VertxHttpClient;
-import io.apicurio.rest.client.auth.Auth;
-import io.apicurio.rest.client.auth.exception.AuthErrorHandler;
-import io.apicurio.rest.client.request.Request;
-import io.apicurio.rest.client.spi.ApicurioHttpClient;
-import io.apicurio.rest.client.util.IoUtil;
 import io.vertx.core.Vertx;
 
 import java.io.IOException;
@@ -44,10 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static io.apicurio.rest.client.request.Operation.DELETE;
-import static io.apicurio.rest.client.request.Operation.GET;
-import static io.apicurio.rest.client.request.Operation.POST;
-import static io.apicurio.rest.client.request.Operation.PUT;
+import static io.apicurio.rest.client.request.Operation.*;
 
 /**
  * @author Fabian Martinez
@@ -79,7 +75,7 @@ public class TenantManagerClientImpl implements TenantManagerClient {
         }
         final String endpoint = baseUrl;
         this.mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        this.client = new VertxHttpClient(vertx, endpoint, configs, auth, new AuthErrorHandler());
+        this.client = new VertxHttpClient(vertx, endpoint, configs, auth, new TenantManagerClientErrorHandler());
     }
 
     @Override
