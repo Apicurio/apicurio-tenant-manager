@@ -42,7 +42,7 @@ public class TenantReaper {
     @Inject
     ApicurioTenantStorage storage;
 
-    @ConfigProperty(name = "tenant-manager.tenant-reaper.max-tenants-reaped.count", defaultValue = "100")
+    @ConfigProperty(name = "tenant-manager.tenant-reaper.max-tenants-reaped.count", defaultValue = "1000")
     int maxTenantsReaped;
 
     @ConfigProperty(name = "tenant-manager.tenant-reaper.period.seconds", defaultValue = "10800") // 3 * 60 * 60 = 3 hours
