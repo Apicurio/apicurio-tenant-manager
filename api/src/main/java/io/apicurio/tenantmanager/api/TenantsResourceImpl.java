@@ -33,16 +33,16 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import io.apicurio.tenantmanager.api.datamodel.NewApicurioTenantRequest;
+import io.apicurio.common.apps.logging.audit.Audited;
 import io.apicurio.tenantmanager.api.datamodel.ApicurioTenant;
 import io.apicurio.tenantmanager.api.datamodel.ApicurioTenantList;
+import io.apicurio.tenantmanager.api.datamodel.NewApicurioTenantRequest;
 import io.apicurio.tenantmanager.api.datamodel.SortBy;
 import io.apicurio.tenantmanager.api.datamodel.SortOrder;
 import io.apicurio.tenantmanager.api.datamodel.TenantStatusValue;
 import io.apicurio.tenantmanager.api.datamodel.UpdateApicurioTenantRequest;
 import io.apicurio.tenantmanager.api.dto.DtoMappers;
 import io.apicurio.tenantmanager.api.services.TenantStatusService;
-import io.apicurio.tenantmanager.logging.audit.Audited;
 import io.apicurio.tenantmanager.metrics.UsageMetrics;
 import io.apicurio.tenantmanager.storage.ApicurioTenantStorage;
 import io.apicurio.tenantmanager.storage.TenantNotFoundException;
@@ -123,9 +123,9 @@ public class TenantsResourceImpl implements TenantsResource {
             }
 
             tenantRequest.getResources()
-                .stream()
-                .map(DtoMappers::toStorageDto)
-                .forEach(dto -> tenant.addResource(dto));
+            .stream()
+            .map(DtoMappers::toStorageDto)
+            .forEach(dto -> tenant.addResource(dto));
         }
 
         tenantsRepository.save(tenant);
@@ -175,9 +175,9 @@ public class TenantsResourceImpl implements TenantsResource {
 
             // Now add in the new ones
             tenantRequest.getResources()
-                .stream()
-                .map(DtoMappers::toStorageDto)
-                .forEach(dto -> tenant.addResource(dto));
+            .stream()
+            .map(DtoMappers::toStorageDto)
+            .forEach(dto -> tenant.addResource(dto));
             updated = true;
         }
 
