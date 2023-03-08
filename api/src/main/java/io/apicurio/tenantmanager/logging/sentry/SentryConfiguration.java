@@ -16,44 +16,24 @@
 
 package io.apicurio.tenantmanager.logging.sentry;
 
-import java.util.logging.LogManager;
-
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import io.apicurio.common.apps.logging.sentry.AbstractSentryConfiguration;
 import io.apicurio.tenantmanager.api.TenantManagerSystem;
-import io.quarkus.runtime.StartupEvent;
-import io.sentry.Sentry;
-import io.sentry.jul.SentryHandler;
 
 /**
  * @author Fabian Martinez
  */
 @ApplicationScoped
-public class SentryConfiguration {
-
-    Logger log = LoggerFactory.getLogger(this.getClass());
-
-    @ConfigProperty(name = "tenant-manager.enable.sentry", defaultValue = "false")
-    Boolean enableSentry;
+public class SentryConfiguration extends AbstractSentryConfiguration {
 
     @Inject
     TenantManagerSystem system;
 
-    void onStart(@Observes StartupEvent ev) throws Exception {
-        if (enableSentry) {
-            java.lang.System.setProperty("sentry.release", system.getVersion());
-            //Sentry will pick it's configuration from env variables
-            Sentry.init();
-            LogManager manager = org.jboss.logmanager.LogManager.getLogManager();
-            manager.getLogger("").addHandler(new SentryHandler());
-            log.info("Sentry initialized");
-        }
+    @Override
+    protected String getReleaseVersion() {
+        return system.getVersion();
     }
 
 }

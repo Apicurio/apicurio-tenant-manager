@@ -29,9 +29,9 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 
-import io.apicurio.tenantmanager.logging.audit.AuditHttpRequestContext;
-import io.apicurio.tenantmanager.logging.audit.AuditHttpRequestInfo;
-import io.apicurio.tenantmanager.logging.audit.AuditLogService;
+import io.apicurio.common.apps.logging.audit.AuditHttpRequestContext;
+import io.apicurio.common.apps.logging.audit.AuditHttpRequestInfo;
+import io.apicurio.common.apps.logging.audit.AuditLogService;
 import io.quarkus.oidc.runtime.BearerAuthenticationMechanism;
 import io.quarkus.oidc.runtime.OidcAuthenticationMechanism;
 import io.quarkus.security.identity.IdentityProviderManager;
@@ -69,8 +69,6 @@ public class CustomAuthenticationMechanism implements HttpAuthenticationMechanis
 
     @Override
     public Uni<SecurityIdentity> authenticate(RoutingContext context, IdentityProviderManager identityProviderManager) {
-
-
         BiConsumer<RoutingContext, Throwable> failureHandler = context.get(QuarkusHttpUser.AUTH_FAILURE_HANDLER);
         BiConsumer<RoutingContext, Throwable> auditWrapper = (ctx, ex) -> {
             //this sends the http response
@@ -86,7 +84,7 @@ public class CustomAuthenticationMechanism implements HttpAuthenticationMechanis
                 }
 
                 //request context for AuditHttpRequestContext does not exist at this point
-                auditLog.log("authenticate", AuditHttpRequestContext.FAILURE, metadata, new AuditHttpRequestInfo() {
+                auditLog.log("tm.audit", "authenticate", AuditHttpRequestContext.FAILURE, metadata, new AuditHttpRequestInfo() {
                     @Override
                     public String getSourceIp() {
                         return ctx.request().remoteAddress().toString();

@@ -30,22 +30,22 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
-import io.apicurio.tenantmanager.client.TenantManagerClient;
-import io.apicurio.tenantmanager.client.TenantManagerClientImpl;
-import io.apicurio.tenantmanager.client.exception.ApicurioTenantNotFoundException;
-import io.apicurio.tenantmanager.client.exception.TenantManagerClientException;
-import io.apicurio.tenantmanager.logging.audit.MockAuditLogService;
-import io.apicurio.tenantmanager.api.datamodel.NewApicurioTenantRequest;
 import io.apicurio.tenantmanager.api.datamodel.ApicurioTenant;
 import io.apicurio.tenantmanager.api.datamodel.ApicurioTenantList;
+import io.apicurio.tenantmanager.api.datamodel.NewApicurioTenantRequest;
 import io.apicurio.tenantmanager.api.datamodel.SortBy;
 import io.apicurio.tenantmanager.api.datamodel.SortOrder;
 import io.apicurio.tenantmanager.api.datamodel.TenantResource;
 import io.apicurio.tenantmanager.api.datamodel.TenantStatusValue;
 import io.apicurio.tenantmanager.api.datamodel.UpdateApicurioTenantRequest;
+import io.apicurio.tenantmanager.client.TenantManagerClient;
+import io.apicurio.tenantmanager.client.TenantManagerClientImpl;
+import io.apicurio.tenantmanager.client.exception.ApicurioTenantNotFoundException;
+import io.apicurio.tenantmanager.client.exception.TenantManagerClientException;
+import io.apicurio.tenantmanager.logging.audit.MockAuditLogService;
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.TestInstance;
 
 /**
  * @author Fabian Martinez
@@ -69,7 +69,6 @@ public class TenantManagerClientTest {
     }
 
     @BeforeEach
-    @SuppressWarnings("deprecation")
     public void cleanup() {
         ApicurioTenantList list = client.listTenants(null, null, null, null, null);
         list.getItems().forEach(t -> {
