@@ -4,8 +4,8 @@ import io.quarkus.scheduler.Scheduled;
 import io.sentry.Sentry;
 import org.slf4j.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 /**
  * TODO: Remove me, or even better, move me to io.apicurio.common.apps.logging.sentry.AbstractSentryConfiguration
