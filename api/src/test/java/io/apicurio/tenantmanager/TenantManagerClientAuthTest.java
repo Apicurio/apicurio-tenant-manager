@@ -18,7 +18,7 @@ package io.apicurio.tenantmanager;
 
 import java.util.Collections;
 
-import javax.enterprise.inject.Typed;
+import jakarta.enterprise.inject.Typed;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Assertions;
